@@ -1,5 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import TaskListCard from '@/Components/TaskListCard';
 
 export default function Dashboard({ auth }) {
     return (
@@ -16,6 +17,17 @@ export default function Dashboard({ auth }) {
                     </div>
                 </div>
             </div>
+
+            <div className="px-6 max-w-7xl mx-auto">
+                {taskLists.map((taskList, index) => (
+                    <TaskListCard 
+                        key={index} 
+                        title={taskList.title} 
+                        description={taskList.description} 
+                    />
+                ))}
+            </div>
+            
         </AuthenticatedLayout>
     );
 }
